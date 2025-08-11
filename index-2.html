@@ -1,263 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saleem Mohammed - IT Supervisor Readiness Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        header { background: #333; color: #fff; padding-top: 30px; min-height: 70px; border-bottom: #77aaff 3px solid; text-align: center; }
-        header h1 { margin: 0; padding-bottom: 10px; }
-        nav ul { padding: 0; list-style: none; text-align: center; }
-        nav li { display: inline; padding: 0 20px; }
-        nav a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 16px; }
-        .content-section { padding: 20px 0; border-bottom: 1px solid #ccc; }
-        h2 { color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
-        .project-overview ul { list-style: none; padding: 0; }
-        .project-overview li { background: #eee; margin-bottom: 5px; padding: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        table, th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saleem Mohammed - Professional Portfolio</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f4f7f9;
+      color: #333;
+    }
+    header, nav, section, footer {
+      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    header {
+      background: #004d99;
+      color: white;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    header img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-bottom: 15px;
+    }
+    nav {
+      background: #0073e6;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+    nav a:hover {
+      background: #005bb5;
+      border-radius: 4px;
+    }
+    h2 {
+      color: #004d99;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #0073e6;
+      padding-bottom: 8px;
+    }
+    section {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      padding: 25px 30px;
+    }
+    ul {
+      list-style: disc inside;
+      margin-bottom: 15px;
+    }
+    .mission-values-goals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .mission-values-goals > div {
+      flex: 1 1 300px;
+      background: #e6f0ff;
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
+    /* Gantt chart styling */
+    .gantt {
+      overflow-x: auto;
+    }
+    table.gantt-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 800px;
+    }
+    .gantt-table th, .gantt-table td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 6px;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    .gantt-table th {
+      background: #0073e6;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .gantt-bar {
+      background: #0073e6;
+      height: 22px;
+      border-radius: 4px;
+      margin: 2px 0;
+    }
+    /* Toolkit and other sections */
+    .toolkit-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .toolkit-item {
+      background: #e8f1ff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: inset 0 0 5px #c2d7ff;
+      transition: box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .toolkit-item:hover {
+      box-shadow: 0 2px 12px rgba(0,115,230,0.4);
+    }
+    /* KPI & Budget Mini-table */
+    .kpi-budget {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .kpi, .budget {
+      flex: 1 1 300px;
+      background: #e6f7ff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    table.kpi-table, table.budget-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table.kpi-table th, table.kpi-table td,
+    table.budget-table th, table.budget-table td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: left;
+    }
+    table.kpi-table th, table.budget-table th {
+      background: #0073e6;
+      color: white;
+    }
+    /* Contact form & info */
+    .contact-info {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    .contact-links a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 20px;
+    }
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    @media(max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .mission-values-goals {
+        flex-direction: column;
+      }
+      .kpi-budget {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>IT Supervisor Readiness Portfolio</h1>
-            <nav>
-                <ul>
-                    <li><a href="#homepage">Home</a></li>
-                    <li><a href="#gantt-chart">Gantt Chart</a></li>
-                    <li><a href="#coaching-communication">Coaching & Communication</a></li>
-                    <li><a href="#customer-service">Customer Service & Incident</a></li>
-                    <li><a href="#kpi-budget">KPI & Budget</a></li>
-                    <li><a href="#team-leadership">Team Leadership & HR</a></li>
-                    <li><a href="#ethics-systems-culture">Ethics, Systems, & Culture</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <img src="https://i.pravatar.cc/150?img=12" alt="Saleem Mohammed Headshot" />
+    <h1>Saleem Mohammed</h1>
+    <p><em>Professional Portfolio</em></p>
+  </header>
 
-    <div class="container">
-        
-        <div id="homepage" class="content-section">
-            <h2>Homepage</h2>
-            <img src="placeholder_headshot.jpg" alt="Professional Headshot" style="width: 150px; height: 150px; border-radius: 50%; float: right;">
-            <h3>Saleem Mohammed</h3>
-            <p><strong>Mission:</strong> To lead an efficient and user-focused IT support team by fostering a culture of continuous improvement, clear communication, and proactive problem-solving. My goal is to empower team members and provide exceptional service that aligns with business objectives.</p>
-            <p><strong>Values:</strong></p>
-            <ul>
-                <li><strong>Integrity:</strong> Upholding ethical standards and transparency in all decisions and actions.</li>
-                <li><strong>Collaboration:</strong> Promoting a team environment where knowledge is shared and every voice is heard.</li>
-                <li><strong>Excellence:</strong> Striving for high-quality service and continuous skill development.</li>
-                <li><strong>Empathy:</strong> Understanding user needs and providing support with patience and professionalism.</li>
-            </ul>
-            <p><strong>Goals:</strong> To transition into an IT leadership role where I can apply my skills in team management, process optimization, and strategic planning to drive operational success.</p>
-        </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#gantt">Gantt Chart</a>
+    <a href="#coaching-toolkit">Coaching &amp; Communication</a>
+    <a href="#customer-toolkit">Customer Service &amp; Incident</a>
+    <a href="#kpi-budget">KPI &amp; Budget</a>
+    <a href="#team-leadership">Team Leadership &amp; HR</a>
+    <a href="#ethics-systems-culture">Ethics &amp; Culture</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-        <div id="gantt-chart" class="content-section">
-            <h2>Gantt Chart: 15-Week Timeline</h2>
-            <p><em>(Placeholder for Gantt Chart visualization)</em></p>
-            <p>This section outlines the 15-week timeline for the IT Supervisor Readiness Portfolio project, detailing key milestones and deadlines for each deliverable to ensure a successful and timely submission.</p>
-        </div>
-
-        <div id="coaching-communication" class="content-section">
-            <h2>Coaching & Communication Toolkit</h2>
-            <p><strong>Employee Warning Memo</strong></p>
-            <p>This memo serves as a formal warning to an employee for a policy violation, such as unauthorized absenteeism. It documents the violation, outlines expectations for improvement, and sets a timeline for monitoring.</p>
-            <p><strong>Sample Helpdesk Ticket Response</strong></p>
-            <p>This demonstrates a professional and empathetic approach to customer support. It acknowledges the user's frustration, confirms initial troubleshooting steps, and communicates the next steps, such as escalating to a higher tier of support. It also assures the user of a follow-up to a complete resolution.</p>
-        </div>
-
-        <div id="customer-service" class="content-section">
-            <h2>Customer Service & Incident Toolkit</h2>
-            <p><strong>Customer Service Standards Statement</strong></p>
-            <p>This statement emphasizes the importance of respecting customers, acting promptly and professionally, and treating end-users as interlocutors, not just support tickets. It advocates for proactive support, clear communication without jargon, and consistent service delivery.</p>
-            <p><strong>Escalation Matrix</strong></p>
-            <p>This matrix defines the different tiers of support (Tier 1, Tier 2, Tier 3, and Incident Coordinator) and outlines the types of issues handled, the response time, and the criteria for escalating tickets.</p>
-            <p><strong>Sample Helpdesk Ticket Response</strong></p>
-            <p>A ticket response that shows empathy and a clear plan of action, including escalation when necessary.</p>
-        </div>
-
-        <div id="kpi-budget" class="content-section">
-            <h2>KPI Dashboard & Mini Budget</h2>
-            <p><strong>KPI Dashboard: IT Team Performance</strong></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>KPI Name</th>
-                        <th>Measurement Unit</th>
-                        <th>Week 1</th>
-                        <th>Week 2</th>
-                        <th>Week 3</th>
-                        <th>Week 4</th>
-                        <th>Goal</th>
-                        <th>Status Indicator</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Average Ticket Resolution Time</td>
-                        <td>Hours</td>
-                        <td>5.2</td>
-                        <td>4.8</td>
-                        <td>4.3</td>
-                        <td>4.1</td>
-                        <td>≤4 hours</td>
-                        <td>Improving</td>
-                    </tr>
-                    <tr>
-                        <td>Customer Satisfaction Score</td>
-                        <td>Percent (%)</td>
-                        <td>85%</td>
-                        <td>88%</td>
-                        <td>91%</td>
-                        <td>93%</td>
-                        <td>≥90%</td>
-                        <td>On target</td>
-                    </tr>
-                    <tr>
-                        <td>Tickets Closed per Week</td>
-                        <td>Count (#)</td>
-                        <td>145</td>
-                        <td>158</td>
-                        <td>170</td>
-                        <td>165</td>
-                        <td>≥ 160 tickets</td>
-                        <td>Consistent</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><strong>Mini Budget Plan</strong></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Specific Item</th>
-                        <th>Unit Cost / Monthly Rate</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Software</td>
-                        <td>Zoom Pro License</td>
-                        <td>$15</td>
-                        <td>For team meetings and remote support</td>
-                    </tr>
-                    <tr>
-                        <td>Software</td>
-                        <td>Helpdesk Ticketing Tool</td>
-                        <td>$50</td>
-                        <td>Managing and tracking IT support tickets</td>
-                    </tr>
-                    <tr>
-                        <td>Training</td>
-                        <td>Online IT Training Course</td>
-                        <td>$200</td>
-                        <td>Skill development for IT support staff</td>
-                    </tr>
-                    <tr>
-                        <td>Hardware</td>
-                        <td>Ergonomic Chairs</td>
-                        <td>$100</td>
-                        <td>Improve comfort and productivity</td>
-                    </tr>
-                    <tr>
-                        <td>Hardware</td>
-                        <td>Replacement Keyboards</td>
-                        <td>$40</td>
-                        <td>Replace faulty keyboards for team members</td>
-                    </tr>
-                    <tr>
-                        <td>Miscellaneous</td>
-                        <td>Office Supplies</td>
-                        <td>$50</td>
-                        <td>General supplies for daily operations</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td></td>
-                        <td>$455</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="team-leadership" class="content-section">
-            <h2>Team Leadership & HR Tools</h2>
-            <p><strong>3-Day Onboarding Plan</strong></p>
-            <p>This plan is designed to provide a new IT team member with a successful integration and a productive start to their work. The plan outlines orientation, systems access, tool setup, shadowing, and KPI introduction.</p>
-            <p><strong>PTO Request and Approval Tracker</strong></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Employee Name</th>
-                        <th>Requested Time Off</th>
-                        <th>Date Range</th>
-                        <th>Supervisor Approval Status</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John Smith</td>
-                        <td>Vacation</td>
-                        <td>Aug 5 – Aug 9, 2025</td>
-                        <td>Approved</td>
-                        <td>Coverage arranged</td>
-                    </tr>
-                    <tr>
-                        <td>Priya Patel</td>
-                        <td>Sick Leave</td>
-                        <td>July 18 – July 20, 2025</td>
-                        <td>Pending</td>
-                        <td>Doctor’s note to be submitted</td>
-                    </tr>
-                    <tr>
-                        <td>David Kim</td>
-                        <td>Personal Day</td>
-                        <td>Aug 1, 2025</td>
-                        <td>Approved</td>
-                        <td>Will check in remotely if needed</td>
-                    </tr>
-                    <tr>
-                        <td>Maria Gonzalez</td>
-                        <td>Family Emergency</td>
-                        <td>July 22 – July 24, 2025</td>
-                        <td>Approved</td>
-                        <td>HR notified</td>
-                    </tr>
-                    <tr>
-                        <td>Ethan Brown</td>
-                        <td>Jury Duty</td>
-                        <td>Aug 12 – Aug 14, 2025</td>
-                        <td>Pending</td>
-                        <td>Awaiting court confirmation</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><strong>RACI Chart: System Patching & Onboarding</strong></p>
-            <p>This chart clarifies roles and responsibilities for IT team members on two key processes: system patching and new hire onboarding. It defines who is Responsible, Accountable, Consulted, and Informed for each task.</p>
-        </div>
-        
-        <div id="ethics-systems-culture" class="content-section">
-            <h2>Ethics, Systems, and Culture</h2>
-            <p>This section showcases the understanding of ethical reasoning, systems thinking, and workplace culture. The <strong>Customer Service Standards Statement</strong> highlights the ethical responsibility of treating users with respect and transparency. The <strong>Escalation Matrix</strong> and <strong>3-Day Onboarding Plan</strong> demonstrate an understanding of operational systems and how to integrate a new team member into the company's culture and processes. The <strong>HR Warning Memo Template</strong> shows an understanding of formal procedures and policy enforcement.</p>
-        </div>
-
-        <div id="contact" class="content-section">
-            <h2>Contact Page</h2>
-            <p><strong>Professional Email:</strong> <em>(placeholder@email.com)</em></p>
-            <p><strong>Résumé:</strong> <a href="placeholder_resume.pdf" target="_blank">Download Résumé (PDF)</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/placeholder" target="_blank">LinkedIn Profile (optional)</a></p>
-        </div>
-
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Mission, Values &amp; Goals</h2>
+    <div class="mission-values-goals">
+      <div>
+        <h3>Mission</h3>
+        <p>To empower organizations with strategic leadership and innovative tools that foster growth, collaboration, and excellence.</p>
+      </div>
+      <div>
+        <h3>Values</h3>
+        <ul>
+          <li>Integrity &amp; Transparency</li>
+          <li>Continuous Improvement</li>
+          <li>Customer-Centric Approach</li>
+          <li>Team Collaboration &amp; Respect</li>
+          <li>Innovation &amp; Accountability</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Goals</h3>
+        <ul>
+          <li>Deliver impactful coaching and leadership solutions.</li>
+          <li>Enhance customer service through proactive incident management.</li>
+          <li>Optimize organizational KPIs for measurable success.</li>
+          <li>Build an ethical, transparent, and adaptive culture.</li>
+          <li>Support team growth and HR best practices.</li>
+        </ul>
+      </div>
     </div>
+  </section>
+
+  <!-- Gantt Chart Section -->
+  <section id="gantt">
+    <h2>15-Week Project Timeline (Gantt Chart)</h2>
+    <div class="gantt">
+      <table class="gantt-table" aria-label="15 week Gantt chart">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <!-- Weeks 1 to 15 -->
+            ${Array.from({length: 15}, (_, i) => `<th>W${i+1}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planning & Research</td>
+            ${[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0].map(v => v ? '<td class="gantt-bar"></td>' : '<td></td>').join('')}
+          </tr>
+          <tr>
+            <td>Design & Development</td>
+            ${[0,0,0,1,1,1,1,1,0,0,0,0,0,0,0].map(v => v ? '<td class="gantt-bar"></td>' : '<td></td>').join('')}
+          </tr>
+          <tr>
+            <td>Testing & QA</td>
+            ${[0,0,0,0,0,0,1,1,1,1,0,0,0,0,0].map(v => v ? '<td class="gantt-bar"></td>' : '<td></td>').join('')}
+          </tr>
+          <tr>
+            <td>Implementation</td>
+            ${[0,0,0,0,0,0,0,0,1,1,1,1,1,0,0].map(v => v ? '<td class="gantt-bar"></td>' : '<td></td>').join('')}
+          </tr>
+          <tr>
+            <td>Review & Feedback</td>
+            ${[0,0,0,0,0,0,0,0,0,0,1,1,1,1,1].map(v => v ? '<td class="gantt-bar"></td>' : '<td></td>').join('')}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Coaching & Communication Toolkit -->
+  <section id="coaching-toolkit">
+    <h2>Coaching &amp; Communication Toolkit</h2>
+    <div class="toolkit-list">
+      <div class="toolkit-item">
+        <h4>Active Listening Guides</h4>
+        <p>Techniques to enhance understanding and empathy during conversations.</p>
+      </div>
+      <div class="toolkit-item">
+        <h4>Feedback Frameworks</h4>
+        <p>Structured approaches for delivering constructive and positive feedback.</p>
+      </div>
+      <div class="toolkit-item">
+        <h4>Coaching Models</h4>
+        <p>Proven coaching frameworks like GROW, CLEAR to facilitate goal achievement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Service & Incident Toolkit -->
+  <section id="customer-toolkit">
+    <h2>Customer Service &amp; Incident Toolkit</h2>
+    <div class="toolkit-list">
+      <div class="toolkit-item">
+        <h4>Incident Response Plans</h4>
+        <p>Clear steps to address customer issues promptly and effectively.</p>
+      </div>
+      <div class="toolkit-item">
+        <h4>Customer Satisfaction Surveys</h4>
+        <p>Templates to gather actionable customer feedback for continuous improvement.</p>
+      </div>
+      <div class="toolkit-item">
+        <h4>Communication Scripts</h4>
+        <p>Standardized messaging for consistency in customer interactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI Dashboard & Mini Budget -->
+  <section id="kpi-budget">
+    <h2>KPI Dashboard &amp; Mini Budget</h2>
+    <div class="kpi-budget">
+      <div class="kpi">
+        <h3>Key Performance Indicators (KPIs)</h3>
+        <table class="kpi-table" aria-label="KPI dashboard">
+          <thead>
+            <tr>
+              <th>KPI</th>
+              <th>Target</th>
+              <th>Current</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Customer Satisfaction</td><td>90%</td><td>87%</td><td>⚠️</td></tr>
+            <tr><td>Issue Resolution Time</td><td>24 hrs</td><td>18 hrs</td><td>✅</td></tr>
+            <tr><td>Employee Engagement</td><td>80%</td><td>75%</td><td>⚠️</td></tr>
+            <tr><td>Project Completion</td><td>100%</td><td>60%</td><td>⏳</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="budget">
+        <h3>Mini Budget Overview</h3>
+        <table class="budget-table" aria-label="Mini budget table">
+          <thead>
+            <tr><th>Category</th><th>Budget</th><th>Spent</th><th>Remaining</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Training & Development</td><td>$10,000</td><td>$4,200</td><td>$5,800</td></tr>
+            <tr><td>Software Tools</td><td>$5,000</td><td>$2,750</td><td>$2,250</td></tr>
+            <tr><td>Team Events</td><td>$3,000</td><td>$1,200</td><td>$1,800</td></tr>
+            <tr><td>Marketing</td><td>$7,500</td><td>$5,000</td><td>$2,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Leadership & HR Tools -->
+  <section id="team-leadership">
+    <h2>Team Leadership &amp; HR Tools</h2>
+    <div class="toolkit-list">
+      <div class="toolkit-item">
+        <h4>Performance Review Templates</h4>
+        <p>Tools to conduct fair and effective employee evaluations.</p>
+      </div>
+      <div class="toolkit-item">
+        <h4>Recruitment Checklists</h4>
+        <p>Guidelines to streamline hiring and onboarding processes.</p>
+      </div>
+      <div class="toolkit-item">
+        <h4>Conflict Resolution Guides</h4>
+        <p>Strategies for managing and resolving team disputes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethics, Systems, and Culture -->
+  <section id="ethics-systems-culture">
+    <h2>Ethics, Systems, and Culture</h2>
+    <p>Promoting a workplace culture that prioritizes ethical behavior, transparent systems, and continuous learning ensures long-term success and employee satisfaction.</p>
+    <ul>
+      <li><strong>Ethics:</strong> Code of conduct, compliance training, and accountability.</li>
+      <li><strong>Systems:</strong> Efficient, transparent, and scalable organizational processes.</li>
+      <li><strong>Culture:</strong> Inclusive environment fostering innovation and respect.</li>
+    </ul>
+  </section>
+
+  <!-- Contact Page -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="contact-info">
+      Email: <a href="mailto:saleem.mohammed@example.com">saleem.mohammed@example.com</a><br />
+      LinkedIn: <a href="https://www.linkedin.com/in/saleemmohammed" target="_blank" rel="noopener">linkedin.com/in/saleemmohammed</a><br />
+      Résumé: <a href="Saleem_Mohammed_Resume.pdf" download>Download PDF</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Saleem Mohammed. All rights reserved.
+  </footer>
 
 </body>
 </html>
